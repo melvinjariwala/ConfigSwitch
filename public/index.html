@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ConfigSwitch - JSON/YAML Converter & Validator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>ConfigSwitch</h1>
+        <!-- Placeholder: Pro Features link could go here in the future -->
+      </header>
+      <section class="converter">
+        <div class="input-group">
+          <label for="inputText">Input</label>
+          <textarea
+            id="inputText"
+            placeholder="Paste or type your JSON or YAML here"
+          ></textarea>
+        </div>
+        <div class="controls">
+          <div class="select-wrapper">
+            <label for="inputFormat">Input Format</label>
+            <select id="inputFormat">
+              <option value="JSON">JSON</option>
+              <option value="YAML">YAML</option>
+              <option value="XML">XML</option>
+              <option value="TOML">TOML</option>
+              <option value="ENV">ENV</option>
+            </select>
+            <span class="select-chevron" aria-hidden="true">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M6 8l4 4 4-4"
+                  stroke="#60a5fa"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </span>
+          </div>
+          <div class="select-wrapper">
+            <label for="outputFormat">Output Format</label>
+            <select id="outputFormat">
+              <option value="JSON">JSON</option>
+              <option value="YAML">YAML</option>
+              <option value="XML">XML</option>
+              <option value="TOML">TOML</option>
+              <option value="ENV">ENV</option>
+            </select>
+            <span class="select-chevron" aria-hidden="true">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M6 8l4 4 4-4"
+                  stroke="#60a5fa"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </span>
+          </div>
+          <button
+            id="beautifyBtn"
+            type="button"
+            class="beautify-btn"
+            title="Beautify Input (Ctrl+B or Cmd+B)"
+          >
+            <span class="beautify-icon" aria-hidden="true">
+              <!-- Magic wand SVG icon -->
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3 17L17 3M8 3V1M13 5.5L14.5 4M16.5 8H19M13 15V17M8 13.5L6.5 15M4 11.5H1"
+                  stroke="#60a5fa"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </span>
+            Beautify Input
+          </button>
+          <!-- <span class="shortcut-hint">Ctrl+B / Cmd+B</span> -->
+          <button id="convertBtn" title="Convert (Ctrl+Enter or Cmd+Enter)">
+            Convert
+          </button>
+          <!-- <span class="shortcut-hint">Ctrl+Enter / Cmd+Enter</span> -->
+          <div class="button-group">
+              <button id="copy-btn">Copy to Clipboard</button>
+              <button id="clear-btn">Clear</button>
+          </div>
+          <div class="button-group">
+              <button id="upload-btn">Upload File</button>
+              <button id="download-btn">Download File</button>
+              <input type="file" id="file-input" style="display: none;" />
+          </div>
+        </div>
+        <div class="output-group">
+          <label for="outputText">Output</label>
+          <textarea
+            id="outputText"
+            readonly
+            placeholder="Converted output will appear here"
+          ></textarea>
+        </div>
+        <div id="message" class="message"></div>
+      </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

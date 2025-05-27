@@ -1,0 +1,352 @@
+/* Premium Dark Theme - Elegant, Subtle, and Worth a Million Dollars */
+
+body {
+  background: radial-gradient(ellipse at 60% 10%, #23283b 0%, #181a20 100%);
+  font-family: "Inter", "Segoe UI", "system-ui", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #e3e6ed;
+  min-height: 100vh;
+  letter-spacing: 0.01em;
+}
+
+main {
+  max-width: 720px;
+  margin: 56px auto;
+  background: rgba(32, 36, 48, 0.82);
+  border-radius: 22px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.55), 0 1.5px 0 0 #2e3548;
+  padding: 48px 36px 36px 36px;
+  border: 1.5px solid rgba(120, 130, 180, 0.13);
+  backdrop-filter: blur(16px) saturate(160%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated luxury border */
+main::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 24px;
+  padding: 2px;
+  background: linear-gradient(
+    120deg,
+    #6ee7b7 0%,
+    #60a5fa 40%,
+    #a5b4fc 70%,
+    #f0abfc 100%
+  );
+  opacity: 0.18;
+  z-index: 0;
+  filter: blur(2px);
+  animation: borderflow 6s linear infinite;
+}
+@keyframes borderflow {
+  0% {
+    filter: blur(2px) brightness(1);
+  }
+  50% {
+    filter: blur(3px) brightness(1.1);
+  }
+  100% {
+    filter: blur(2px) brightness(1);
+  }
+}
+
+header {
+  text-align: center;
+  margin-bottom: 32px;
+  position: relative;
+  z-index: 1;
+}
+
+h1 {
+  font-size: 2.5em;
+  margin: 0 0 10px 0;
+  color: #e3e6ed;
+  font-weight: 900;
+  letter-spacing: 1.2px;
+  text-shadow: 0 2px 16px #23283b44;
+}
+
+.converter {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  position: relative;
+  z-index: 1;
+}
+
+.input-group,
+.output-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+label {
+  font-weight: 600;
+  color: #b6bdd6;
+  letter-spacing: 0.2px;
+  font-size: 1.04em;
+}
+
+textarea {
+  min-height: 140px;
+  resize: vertical;
+  font-family: "Fira Mono", "Consolas", monospace;
+  font-size: 1.08em;
+  padding: 14px;
+  border: 1.5px solid #2e3548;
+  border-radius: 10px;
+  background: rgba(28, 32, 44, 0.82);
+  color: #e3e6ed;
+  box-shadow: 0 2px 12px 0 #23283b22;
+  transition: border 0.2s, box-shadow 0.2s;
+  outline: none;
+  backdrop-filter: blur(2px);
+}
+
+textarea:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 2px #60a5fa33;
+}
+
+.controls {
+  display: flex;
+  align-items: flex-end;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.controls > div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+select {
+  padding: 8px 14px;
+  border-radius: 7px;
+  border: 1.5px solid #2e3548;
+  background: rgba(28, 32, 44, 0.92);
+  color: #e3e6ed;
+  font-size: 1em;
+  font-weight: 500;
+  box-shadow: 0 1px 4px 0 #23283b22;
+  transition: border 0.2s;
+  outline: none;
+}
+
+select:focus {
+  border-color: #6ee7b7;
+}
+
+button#convertBtn {
+  padding: 13px 32px;
+  background: linear-gradient(90deg, #60a5fa 0%, #a5b4fc 100%);
+  color: #23283b;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.18em;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 2px 16px 0 #23283b33;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+  margin-top: 22px;
+  letter-spacing: 0.5px;
+  outline: none;
+}
+
+button#convertBtn:hover {
+  background: linear-gradient(90deg, #6ee7b7 0%, #60a5fa 100%);
+  box-shadow: 0 4px 24px 0 #60a5fa33;
+  transform: translateY(-2px) scale(1.03);
+}
+
+.message {
+  margin-top: 18px;
+  min-height: 26px;
+  font-size: 1.12em;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  border-radius: 6px;
+  padding: 6px 0 2px 0;
+}
+
+.message.error {
+  color: #f87171;
+  /* background: rgba(220, 38, 38, 0.07); */
+  /* box-shadow: 0 1px 8px #7f1d1d22; */
+}
+
+.message.success {
+  color: #4ade80;
+  /* background: rgba(16, 185, 129, 0.07); */
+  /* box-shadow: 0 1px 8px #16653422; */
+}
+
+/* Beautify Input button - Postman style */
+.beautify-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 11px 26px 11px 18px;
+  background: linear-gradient(90deg, #23293a 0%, #23283b 100%);
+  color: #60a5fa;
+  border: none;
+  border-radius: 999px;
+  font-size: 1.08em;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 2px 8px 0 #23283b33;
+  transition: background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.1s;
+  outline: none;
+  position: relative;
+  margin-right: 8px;
+}
+.beautify-btn:hover,
+.beautify-btn:focus {
+  background: linear-gradient(90deg, #2e3548 0%, #23293a 100%);
+  color: #a5b4fc;
+  box-shadow: 0 4px 16px 0 #60a5fa22;
+  transform: translateY(-1px) scale(1.03);
+}
+.beautify-icon {
+  display: flex;
+  align-items: center;
+  margin-right: 2px;
+}
+.beautify-btn svg {
+  display: block;
+  stroke: currentColor;
+  color: #60a5fa;
+  transition: color 0.18s;
+}
+.beautify-btn:hover svg,
+.beautify-btn:focus svg {
+  color: #a5b4fc;
+}
+
+/* Modern select dropdown styling */
+.select-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 150px;
+}
+.select-wrapper label {
+  margin-bottom: 0px;
+}
+.select-wrapper select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: linear-gradient(90deg, #23293a 0%, #23283b 100%);
+  color: #e3e6ed;
+  border: 1.5px solid #2e3548;
+  border-radius: 8px;
+  padding: 10px 38px 10px 14px;
+  font-size: 1.08em;
+  font-weight: 600;
+  box-shadow: 0 1px 4px 0 #23283b22;
+  transition: border 0.2s, box-shadow 0.2s;
+  outline: none;
+  cursor: pointer;
+  min-width: 120px;
+}
+.select-wrapper select:focus {
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 2px #60a5fa33;
+}
+.select-chevron {
+  pointer-events: none;
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  height: 18px;
+}
+.select-chevron svg {
+  display: block;
+  color: #60a5fa;
+  transition: color 0.18s;
+}
+.select-wrapper select:focus + .select-chevron svg {
+  color: #a5b4fc;
+}
+/* Style dropdown list (supported browsers) */
+.select-wrapper select option {
+  background: #23283b;
+  color: #e3e6ed;
+  border-radius: 8px;
+  font-size: 1.05em;
+}
+
+textarea::-webkit-scrollbar,
+select::-webkit-scrollbar {
+  width: 10px;
+  background: #23283b;
+}
+textarea::-webkit-scrollbar-thumb,
+select::-webkit-scrollbar-thumb {
+  background: #2e3548;
+  border-radius: 7px;
+}
+
+@media (max-width: 800px) {
+  main {
+    padding: 18px 2vw 18px 2vw;
+  }
+  h1 {
+    font-size: 1.5em;
+  }
+  textarea {
+    font-size: 0.98em;
+  }
+}
+
+/* Add styling for button groups for better layout */
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Ensure all buttons in a group have a consistent style */
+.button-group button {
+  /* background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease; */
+  padding: 13px 32px;
+  background: linear-gradient(90deg, #60a5fa 0%, #a5b4fc 100%);
+  color: #23283b;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.18em;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 2px 16px 0 #23283b33;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+  margin-top: 22px;
+  letter-spacing: 0.5px;
+  outline: none;
+}
+
+.button-group button:hover {
+  /* background-color: #0056b3; */
+  background: linear-gradient(90deg, #6ee7b7 0%, #60a5fa 100%);
+  box-shadow: 0 4px 24px 0 #60a5fa33;
+  transform: translateY(-2px) scale(1.03);
+}

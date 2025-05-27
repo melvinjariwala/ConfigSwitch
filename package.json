@@ -1,0 +1,20 @@
+{
+  "name": "configswitch",
+  "version": "1.0.0",
+  "description": "A simple web-based utility called \"ConfigSwitch\" that allows users to convert configuration files between JSON and YAML formats, and vice-versa.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@iarna/toml": "^2.2.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "js-yaml": "^4.1.0",
+    "toml": "^3.0.0",
+    "xml2js": "^0.6.2"
+  }
+}
