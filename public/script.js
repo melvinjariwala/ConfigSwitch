@@ -28,6 +28,40 @@ document.addEventListener('DOMContentLoaded', () => {
         messageArea.className = 'message';
     }
 
+    // Function to detect format
+    function detectFormat(text) {
+        text = text.trim();
+        if (!text) return null;
+
+        // Try JSON
+        try {
+            JSON.parse(text);
+            return 'JSON';
+        } catch (e) { /* not JSON */ }
+
+        // Try XML (basic detection)
+        if (text.startsWith('<') && text.endsWith('>')) {
+            // More robust XML check could involve DOMParser, but this is a quick check
+            if (text.includes('<') && text.includes('</')) {
+                return 'XML';
+            }
+        }
+
+        // Try YAML (basic detection)
+        // YAML often starts with --- or a key-value pair, and uses indentation
+        // This is a very basic check, a full YAML parser would be more accurate
+        if (text.includes(':') && !text.includes('<') && !text.includes('{') && !text.includes('[') && !text.includes('=')) {
+            try {
+                // Use js-yaml to validate if it's valid YAML
+                window.jsyaml.load(text);
+                return 'YAML';
+            } catch (e) { /* not YAML */ }
+        }
+
+        // Plain Text (fallback)
+        return 'Plain Text';
+    }
+
     // Handle Convert button click
     convertBtn.addEventListener('click', async () => {
         clearMessage();
@@ -154,8 +188,21 @@ document.addEventListener('DOMContentLoaded', () => {
         const reader = new FileReader();
         reader.onload = (e) => {
             inputTextArea.value = e.target.result;
+            // Trigger format detection after file content is loaded
+            const detected = detectFormat(inputTextArea.value);
+            if (detected) {
+                inputFormatSelect.value = detected;
+            }
         };
         reader.readAsText(file);
+    });
+
+    // Automatic format detection on input
+    inputTextArea.addEventListener('input', () => {
+        const detected = detectFormat(inputTextArea.value);
+        if (detected) {
+            inputFormatSelect.value = detected;
+        }
     });
 
     // Implement File Download
